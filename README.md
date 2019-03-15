@@ -1,1 +1,79 @@
 # autocar
+
+[感谢zhengwang的这篇博客](https://zhengludwig.wordpress.com/projects/self-driving-rc-car/)
+[原作者github链接](https://github.com/hamuchiwa/AutoRCCar)
+## Pytho3 + opencv3
+此项目是在zhengwang的基础下进行修改的，树莓派改用性能更强大的linux主机，<br>
+pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小车选择的1/14的RC遥控车进行改装，<br>
+电机驱动采用tb6612，转向由舵机进行控制,所有程序运行均在linux主机上。
+
+##搭建linux环境
+
+这里采用ubuntu作为案例，首先需要将系统更新为最新状态
+
+		sudo apt update && apt upgrade
+
+接下来安装opencv3到python3上,步骤比较繁琐：
+
+	1.Install CMAKE developer packages(安装cmake包)
+
+		sudo apt-get install build-essential cmake pkg-config -y
+		
+	2.Install Image I/O packages（安装图像io包）
+
+		sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev -y
+	
+	3.Install Video I/O packages（安装视频io包）
+
+		sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
+		sudo apt-get install libxvidcore-dev libx264-dev -y
+	
+	4.Install the GTK development library for basic GUI windows（安装GTK开发包）
+		
+		sudo apt-get install libgtk2.0-dev libgtk-3-dev -y
+
+	5.Install optimization packages (improved matrix operations for OpenCV)
+		（安装矩阵改进包，可安装可不）
+		sudo apt-get install libatlas-base-dev gfortran -y
+
+	6.Install Python 3 and numpy（安装python3和numpy）
+
+		sudo apt-get install python3 python3-setuptools python3-dev -y
+		wget https://bootstrap.pypa.io/get-pip.py
+		sudo python3 get-pip.py
+		sudo pip3 install numpy
+	
+	7.Compile and Install OpenCV 3.4.0 for Python 3（cmake）
+		
+		cd opencv-3.4.0
+		mkdir build
+		cd build
+		cmake -D CMAKE_BUILD_TYPE=RELEASE \
+		-D CMAKE_INSTALL_PREFIX=/usr/local \
+		-D BUILD_opencv_java=OFF \
+		-D BUILD_opencv_python2=OFF \
+		-D BUILD_opencv_python3=ON \
+		-D PYTHON_DEFAULT_EXECUTABLE=$(which python3) \
+		-D INSTALL_C_EXAMPLES=OFF \
+		-D INSTALL_PYTHON_EXAMPLES=ON \
+		-D BUILD_EXAMPLES=ON\
+		-D OPENCV_EXTRA_MODULES_PATH=~/opencv_contrib-3.4.0/modules \
+		-D WITH_CUDA=OFF \
+		-D BUILD_TESTS=OFF \
+		-D BUILD_PERF_TESTS= OFF ..
+
+	8.Finally Ready to be Compile（编译）
+		
+		make -j4
+
+	9.Install the build （安装）
+	
+		sudo make install
+		sudo ldconfig
+
+	10.Verify the OpenCV build（验证）
+	
+		python3
+		import cv2
+		print(__version__.cv2)
+
