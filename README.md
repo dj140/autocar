@@ -1,13 +1,14 @@
 # autocar
 
 [感谢zhengwang的这篇博客](https://zhengludwig.wordpress.com/projects/self-driving-rc-car/)
+
 [原作者github链接](https://github.com/hamuchiwa/AutoRCCar)
 ## Pytho3 + opencv3
 此项目是在zhengwang的基础下进行修改的，树莓派改用性能更强大的linux主机，<br>
 pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小车选择的1/14的RC遥控车进行改装，<br>
 电机驱动采用tb6612，转向由舵机进行控制,所有程序运行均在linux主机上。
 
-##搭建linux环境
+## 搭建linux环境
 
 这里采用ubuntu作为案例，首先需要将系统更新为最新状态
 
@@ -75,5 +76,36 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 	
 		python3
 		import cv2
-		print(__version__.cv2)
+		print(cv2.__version__)
+
+
+-----------------------------------
+## 安装pygame，sklearn等(sklearn版本要大于0.18)
+		pip3 install pygame
+		apt-get install python3-serial
+		apt-get install python3-sklearn=0.18.0
+		pip install --user --upgrade scikit-learn==0.18.0
+
+  安装的sklearn版本要是小于0.18，可以用下面的指令升级
+  		pip install -U scikit-learn
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------
+## 简单操作
+
+		./driver.py (单纯控制小车前后左右)
+		./collectdata.py (打开摄像头，采集数据，键盘每按下一次即记录图片信息)
+		./model_training.py (导入数据，训练模型)
+		./auto_driver.py (自动驾驶)
+
 
