@@ -120,7 +120,7 @@ class collectdata(object):
                             break
 
                     elif event.type == pygame.KEYUP:
-                        self.ser.write(chr(0).encode())
+                        self.ser.write('p'.encode())
                         
                 if cv2.waitKey(1) & 0xFF == ord('q'):
                     break

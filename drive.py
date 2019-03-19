@@ -19,7 +19,7 @@ Moving around:
 'q' or <ESC>退出程序
 """
 def main():
-    ser = serial.Serial("/dev/stm32", 115200, timeout=1)
+    ser = serial.Serial("/dev/ttyUSB0", 115200, timeout=1)
     print(msg)
     with Input() as input_generator:
         for e in input_generator:
