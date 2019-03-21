@@ -114,15 +114,15 @@ class Autocontol(object):
                         stop_sign_active = False
                 #当检测到红绿灯再前方的时候
                 elif 0 < self.d_light < 30:
-                    print("注意前方红绿灯！！！")
+                    #print("注意前方红绿灯！！！")
                     if self.obj_detection.red_light:
-                        print("Red light")
+                        print("红灯危险！！")
                         self.rc_car.stop()
                     elif self.obj_detection.green_light:
-                        print("Green light")
+                        print("绿灯安全")
                         pass
                     elif self.obj_detection.yellow_light:
-                        print("Yellow light flashing")
+                        print("黄灯慢行！")
                         pass
 
                     self.d_light = 30

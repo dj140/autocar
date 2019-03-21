@@ -100,7 +100,7 @@ class ObjectDetection(object):
                         self.green_light = True
 
                     # yellow light
-                    # elif 4.0/8*(height-30) < maxLoc[1] < 5.5/8*(height-30):
-                    #    cv2.putText(image, 'Yellow', (x_pos+5, y_pos - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2)
-                    #    self.yellow_light = True
+                    elif 4.0/8*(height-30) < maxLoc[1] < 5.5/8*(height-30):
+                        cv2.putText(image, 'Yellow', (x_pos+5, y_pos - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2)
+                        self.yellow_light = True
         return v
