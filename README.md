@@ -109,6 +109,11 @@ if ros_path in sys.path:
 import cv2
 
 sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
+
+#解决ubuntu的串口权限问题
+~$ whoami
+dj40
+~$ sudo usermod -aG dialout d
 --------------------------------
 ## 简单操作
 
