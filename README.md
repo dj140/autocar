@@ -82,21 +82,13 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 -----------------------------------
 ## 安装pygame，sklearn等(sklearn版本要大于0.18)
 		pip3 install pygame
-		apt-get install python3-serial
-		apt-get install python3-sklearn=0.18.0
-		pip install --user --upgrade scikit-learn==0.18.0
-
+		
   安装的sklearn版本要是小于0.18，可以用下面的指令升级
   		pip install -U scikit-learn
 
 
 
-
-
-
-
-
-
+#源码编译安装pygame
 sudo apt-get install mercurial 
 sudo apt-get build-dep python-pygame
 
@@ -107,7 +99,16 @@ hg clone https://bitbucket.org/pygame/pygame
 cd pygame
 python3 setup.py build
 sudo python3 setup.py install
+ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
+#解决opencv和ros冲突
+import sys
+if ros_path in sys.path:
 
+    sys.path.remove(ros_path)
+
+import cv2
+
+sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
 --------------------------------
 ## 简单操作
 
