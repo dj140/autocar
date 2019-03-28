@@ -44,11 +44,14 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 		sudo python3 get-pip.py
 		sudo pip3 install numpy
 	
-	cd ~
-wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.0.zip
-unzip opencv.zip
-wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.4.0.zip
-unzip opencv_contrib.zip
+	7.下载opencv3.4和opencv3.4扩展包（版本一定要对应）
+
+		cd ~
+		wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.0.zip
+		unzip opencv.zip
+		wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.4.0.zip
+		unzip opencv_contrib.zip
+
 	7.Compile and Install OpenCV 3.4.0 for Python 3（cmake）
 		
 		cd opencv-3.4.0
@@ -92,33 +95,34 @@ unzip opencv_contrib.zip
   		pip install -U scikit-learn
 
 
+##源码编译安装pygame
 
-#源码编译安装pygame
-sudo apt-get install mercurial 
-sudo apt-get build-dep python-pygame
+	安装pygame依赖环境
+		sudo apt-get build-dep python-pygame
+		sudo apt-get install mercurial python3-dev python3-numpy libav-tools \
+		libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev \
+		libsdl1.2-dev  libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev
+	下载源码
+		hg clone https://bitbucket.org/pygame/pygame
+		cd pygame
+		python3 setup.py build
+		sudo python3 setup.py install
 
-sudo apt-get install mercurial python3-dev python3-numpy libav-tools \
-    libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev libsmpeg-dev \
-    libsdl1.2-dev  libportmidi-dev libswscale-dev libavformat-dev libavcodec-dev
-hg clone https://bitbucket.org/pygame/pygame
-cd pygame
-python3 setup.py build
-sudo python3 setup.py install
-ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
-#解决opencv和ros冲突
-import sys
-if ros_path in sys.path:
+##解决opencv和ros的文件冲突
 
-    sys.path.remove(ros_path)
-
-import cv2
-
-sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
+		import sys
+		ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
+		if ros_path in sys.path:
+		sys.path.remove(ros_path)
+		import cv2
+		sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
 
 #解决ubuntu的串口权限问题
-~$ whoami
-dj40
-~$ sudo usermod -aG dialout d
+	查看当前用户名
+		~$ whoami
+		   dj40
+		~$ sudo usermod -aG dialout dj140
+
 --------------------------------
 ## 简单操作
 
