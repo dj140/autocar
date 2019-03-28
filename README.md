@@ -44,6 +44,11 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 		sudo python3 get-pip.py
 		sudo pip3 install numpy
 	
+	cd ~
+wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.0.zip
+unzip opencv.zip
+wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.4.0.zip
+unzip opencv_contrib.zip
 	7.Compile and Install OpenCV 3.4.0 for Python 3（cmake）
 		
 		cd opencv-3.4.0
