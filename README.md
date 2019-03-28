@@ -95,7 +95,7 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
   		pip install -U scikit-learn
 
 
-##源码编译安装pygame
+## 源码编译安装pygame
 
 	安装pygame依赖环境
 		sudo apt-get build-dep python-pygame
@@ -108,7 +108,7 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 		python3 setup.py build
 		sudo python3 setup.py install
 
-##解决opencv和ros的文件冲突
+## 解决opencv和ros的文件冲突
 
 		import sys
 		ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
@@ -117,7 +117,8 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 		import cv2
 		sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
 
-#解决ubuntu的串口权限问题
+## 解决ubuntu的串口权限问题
+
 	查看当前用户名
 		~$ whoami
 		   dj40
