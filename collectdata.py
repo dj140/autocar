@@ -3,9 +3,12 @@
 #coding = UTF-8
 #作者，装逼用的，不用管
 __author__ = 'dj140'
-
-#导入opencv
+import sys
+ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
+if ros_path in sys.path:
+        sys.path.remove(ros_path)
 import cv2
+sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
 import time
 #导入numpy，改名为np，方便打字
 import numpy as np
