@@ -94,7 +94,7 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 		
   安装的sklearn版本要是小于0.18，可以用下面的指令升级
   
-  		pip install -U scikit-learn
+  		pip3 install -U scikit-learn
 
 
 ## 源码编译安装pygame
