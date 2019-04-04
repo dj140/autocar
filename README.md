@@ -89,9 +89,11 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 
 -----------------------------------
 ## 安装pygame，sklearn等(sklearn版本要大于0.18)
+
 		pip3 install pygame
 		
   安装的sklearn版本要是小于0.18，可以用下面的指令升级
+  
   		pip install -U scikit-learn
 
 
@@ -113,7 +115,7 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 		import sys
 		ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
 		if ros_path in sys.path:
-		sys.path.remove(ros_path)
+			sys.path.remove(ros_path)
 		import cv2
 		sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
 
