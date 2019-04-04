@@ -128,6 +128,10 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
     #!/bin/bash
     xrdb $HOME/.Xresources
     startxfce4 &
+    
+  给文件权限
+    
+    sudo chmod +x xstartup
 ## 解决opencv和ros的文件冲突
 
 	import sys
