@@ -4,7 +4,13 @@ __author__ = 'dj140'
 
 import sys 
 import numpy as np
+
+ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
+if ros_path in sys.path:
+    sys.path.remove(ros_path)
 import cv2
+sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
+
 
 from model import NeuralNetwork
 from rc_driver_helper import *
