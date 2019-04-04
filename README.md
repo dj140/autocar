@@ -16,35 +16,35 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 
 接下来安装opencv3到python3上,步骤比较繁琐：
 
-	1.Install CMAKE developer packages(安装cmake包)
+1.Install CMAKE developer packages(安装cmake包)
 
 		sudo apt-get install build-essential cmake pkg-config -y
 		
-	2.Install Image I/O packages（安装图像io包）
+2.Install Image I/O packages（安装图像io包）
 
 		sudo apt-get install libjpeg-dev libtiff5-dev libjasper-dev libpng12-dev -y
 	
-	3.Install Video I/O packages（安装视频io包）
+3.Install Video I/O packages（安装视频io包）
 
 		sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
 		sudo apt-get install libxvidcore-dev libx264-dev -y
 	
-	4.Install the GTK development library for basic GUI windows（安装GTK开发包）
+4.Install the GTK development library for basic GUI windows（安装GTK开发包）
 		
 		sudo apt-get install libgtk2.0-dev libgtk-3-dev -y
 
-	5.Install optimization packages (improved matrix operations for OpenCV)
+5.Install optimization packages (improved matrix operations for OpenCV)
 		（安装矩阵改进包，可安装可不）
 		sudo apt-get install libatlas-base-dev gfortran -y
 
-	6.Install Python 3 and numpy（安装python3和numpy）
+6.Install Python 3 and numpy（安装python3和numpy）
 
 		sudo apt-get install python3 python3-setuptools python3-dev -y
 		wget https://bootstrap.pypa.io/get-pip.py
 		sudo python3 get-pip.py
 		sudo pip3 install numpy
 	
-	7.下载opencv3.4和opencv3.4扩展包（版本一定要对应）
+7.下载opencv3.4和opencv3.4扩展包（版本一定要对应）
 
 		cd ~
 		wget -O opencv.zip https://github.com/Itseez/opencv/archive/3.4.0.zip
@@ -52,7 +52,7 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 		wget -O opencv_contrib.zip https://github.com/Itseez/opencv_contrib/archive/3.4.0.zip
 		unzip opencv_contrib.zip
 
-	7.Compile and Install OpenCV 3.4.0 for Python 3（cmake）
+8.Compile and Install OpenCV 3.4.0 for Python 3（cmake）
 		
 		cd opencv-3.4.0
 		mkdir build
@@ -71,16 +71,16 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 		-D BUILD_TESTS=OFF \
 		-D BUILD_PERF_TESTS= OFF ..
 
-	8.Finally Ready to be Compile（编译）
+9.Finally Ready to be Compile（编译）
 		
 		make -j4
 
-	9.Install the build （安装）
+10.Install the build （安装）
 	
 		sudo make install
 		sudo ldconfig
 
-	10.Verify the OpenCV build（验证）
+11.Verify the OpenCV build（验证）
 	
 		python3
 		import cv2
@@ -111,8 +111,19 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 		sudo python3 setup.py install
 
 ## 安装vnc
-  
-	
+
+    sudo apt-get install vnc4server
+    sudo apt-get install xfce4
+    vncserver
+    vncserver -kill :1
+    cd ~/.vnc
+    sudo mv xstartup  xstartup.bak && sudo vim xstartup
+    
+ 写入下面内容，保存退出
+ 
+    #!/bin/bash
+    xrdb $HOME/.Xresources
+    startxfce4 &
 ## 解决opencv和ros的文件冲突
 
 		import sys
