@@ -110,6 +110,9 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 		python3 setup.py build
 		sudo python3 setup.py install
 
+## 安装vnc
+  
+	
 ## 解决opencv和ros的文件冲突
 
 		import sys
