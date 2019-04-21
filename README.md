@@ -137,7 +137,7 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 	import sys
 	ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
 	if ros_path in sys.path:
-          sys.path.remove(ros_path)
+         sys.path.remove(ros_path)
 	import cv2
 	sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
 
