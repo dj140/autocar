@@ -8,6 +8,9 @@
 pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小车选择的1/14的RC遥控车进行改装，<br>
 电机驱动采用tb6612，转向由舵机进行控制,所有程序运行均在linux主机上。
 
+## 2019.5.2更新，加入tensorflow支持，物体识别和神经网络改用tensorflow搭建
+
+## Version 1.0
 ## 搭建linux环境
 
 这里采用ubuntu作为案例，首先需要将系统更新为最新状态
@@ -84,7 +87,7 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 	
 	python3
 	import cv2
-	print(cv2.__version__)
+	cv2.__version__
 
 
 -----------------------------------
@@ -137,7 +140,7 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 	import sys
 	ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
 	if ros_path in sys.path:
-         sys.path.remove(ros_path)
+        sys.path.remove(ros_path)
 	import cv2
 	sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
 
@@ -156,5 +159,21 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 	./collectdata.py (打开摄像头，采集数据，键盘每按下一次即记录图片信息)
 	./model_training.py (导入数据，训练模型)
 	./auto_driver.py (自动驾驶)
+
+## Version 2.0 tensorflow版
+
+安装Tensorflow-cpu
+	
+	sudo pip3 install tensorflow
+
+测试
+
+	python3
+    import tensorflow as tf
+	tf.__version__
+
+无错误显示即安装成功，[gpu版和源码编译安装教程](https://github.com/dj140/Tensorflow-install-tutorial)
+
+
 
 
