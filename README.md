@@ -9,6 +9,8 @@
 pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小车选择的1/14的RC遥控车进行改装，<br>
 电机驱动采用tb6612，转向由舵机进行控制,所有程序运行均在linux主机上。
 
+##2019.4月更新，加入[ROS支持](https://github.com/dj140/ROS)
+
 ## 2019.5.2更新，加入tensorflow支持，物体识别和神经网络改用tensorflow搭建
 
 ## Version 1.0
