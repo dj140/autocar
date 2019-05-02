@@ -3,6 +3,7 @@
 [感谢zhengwang的这篇博客](https://zhengludwig.wordpress.com/projects/self-driving-rc-car/)
 
 [原作者github链接](https://github.com/hamuchiwa/AutoRCCar)
+
 ## Pytho3 + opencv3
 此项目是在zhengwang的基础下进行修改的，树莓派改用性能更强大的linux主机，<br>
 pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小车选择的1/14的RC遥控车进行改装，<br>
@@ -11,6 +12,7 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 ## 2019.5.2更新，加入tensorflow支持，物体识别和神经网络改用tensorflow搭建
 
 ## Version 1.0
+
 ## 搭建linux环境
 
 这里采用ubuntu作为案例，首先需要将系统更新为最新状态
@@ -135,6 +137,7 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
   给文件权限
     
     sudo chmod +x xstartup
+
 ## 解决opencv和ros的文件冲突
 
 	import sys
@@ -174,6 +177,18 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 
 无错误显示即安装成功，[gpu版和源码编译安装教程](https://github.com/dj140/Tensorflow-install-tutorial)
 
+	git clone https://github.com/dj140/autocar.git
 
+文件目录如下：
+
+![image](https://github.com/dj140/autocar/blob/master/images/tree.png)
+
+	coco_car.py为微软coco数据集
+	traffic_light为交通灯检测
+
+两个不同模型训练的卷积神经网络
+
+	alexnet 2012年CNN模型
+	googlenet 2014年CNN模型
 
 
