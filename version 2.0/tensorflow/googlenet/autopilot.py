@@ -3,7 +3,7 @@
 import numpy as np
 import sys
 import time
-import random
+import serial
 from models import inception_v3 as googlenet
 
 ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
@@ -21,14 +21,18 @@ MODEL_NAME = 'tf-{}-{}-{}-epochs.model'.format(LR, 'google',EPOCHS)
 video = cv2.VideoCapture(0)
 video.set (cv2.CAP_PROP_FRAME_WIDTH,320)
 video.set (cv2.CAP_PROP_FRAME_HEIGHT,240)
+serial_port = serial.Serial('/dev/ttyUSB0', 115200, timeout=1)
 
 def straight():
+    serial_port.write('w'.encode())
     print('straight')
 
 def left():
+    serial_port.write('a'.encode())
     print('left')
 
 def right():
+    serial_port.write('d'.encode())
     print('right')
     
 model = googlenet(WIDTH, HEIGHT, 3, LR, output=3)
@@ -63,8 +67,6 @@ def main():
             break 
 
 main()       
-
-
 
 
 
