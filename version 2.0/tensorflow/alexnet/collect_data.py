@@ -145,10 +145,11 @@ class collectdata(object):
             self.video.release()
             cv2.destroyAllWindows()
 
-#类似于判断程序名字是不是main，是的话就执行下面的代码，暂时理解为程序的入口ok
+#类似于判断程序名字是不是main，是的话就执行下面的代码，暂时理解为程序的入口就ok
 if __name__ == '__main__':
     #串口号，相当于电脑的com口
     sp = "/dev/ttyUSB0"
+    #使用摄像头0
     video = 0
     #给init函数赋初值
     dj = collectdata(sp,video)

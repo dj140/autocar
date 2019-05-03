@@ -1,18 +1,18 @@
+#!/usr/bin/python3
+
 import numpy as np 
 from random import shuffle
 from collections import Counter
 import pandas as pd 
-#ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
-#if ros_path in sys.path:
-#    sys.path.remove(ros_path)
-#import cv2 
-#sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
-train_data = np.load('training_data/1556511921.npy')
 
-df = pd.DataFrame(train_data)
+#path = "training_data/*.npy"
+data_path = glob.glob('training_data/*.npy')
+for data in data_path:
+    train_data = np.load(data)
 
-print(df.head())
-print(Counter(df[1].apply(str)))
+#df = pd.DataFrame(train_data)
+#print(df.head())
+#print(Counter(df[1].apply(str)))
 
 lefts = []
 rights = []
@@ -25,9 +25,9 @@ for data in train_data:
     choice = data[1]
 
     if choice == [1,0,0]:
-        lefts.append([img,choice])
-    elif choice == [0,1,0]:
         forwards.append([img,choice])
+    elif choice == [0,1,0]:
+        lefts.append([img,choice])
     elif choice == [0,0,1]:
         rights.append([img,choice])
     else:
