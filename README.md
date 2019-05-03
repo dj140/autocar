@@ -158,7 +158,7 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 	~$ sudo usermod -aG dialout dj140
 
 --------------------------------
-## 简单操作
+## 简单操作(version 1.0)
 
 	./driver.py (单纯控制小车前后左右)
 	./collectdata.py (打开摄像头，采集数据，键盘每按下一次即记录图片信息)
