@@ -89,6 +89,16 @@ with detection_graph.as_default():
               if mid_x > 0.3 and mid_x < 0.7:
                 cv2.putText(image_np, 'WARNING!!!', (int(mid_x*800)-150,int(mid_y*450)-50), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0,0,255), 3)
 
+        if classes[0][i] == 10:
+          if scores[0][i] >= 0.5:
+            mid_x = (boxes[0][i][1]+boxes[0][i][3])/2
+            mid_y = (boxes[0][i][0]+boxes[0][i][2])/2
+            apx_distance = round(((1 - (boxes[0][i][3] - boxes[0][i][1]))**4),1)
+            cv2.putText(image_np, '{}'.format(apx_distance), (int(mid_x*800),int(mid_y*450)), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255,255,255), 2)
+
+            if apx_distance <=0.5:
+              if mid_x > 0.3 and mid_x < 0.7:
+                cv2.putText(image_np, 'WARNING!!!', (int(mid_x*800)-150,int(mid_y*450)-50), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (0,0,255), 3)
 
       cv2.imshow('window',cv2.resize(image_np,(800,450)))
       if cv2.waitKey(25) & 0xFF == ord('q'):

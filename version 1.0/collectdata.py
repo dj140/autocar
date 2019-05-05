@@ -3,13 +3,10 @@
 #coding = UTF-8
 #作者，装逼用的，不用管
 __author__ = 'dj140'
+
 import sys
-ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
-if ros_path in sys.path:
-    sys.path.remove(ros_path)
-import cv2
-sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
 import time
+import os 
 #导入numpy，改名为np，方便打字
 import numpy as np
 #导入串口，和stm32通信用的
@@ -18,8 +15,12 @@ import serial
 import pygame
 #从pygame.locals中导入所有东西
 from pygame.locals import *
-import time 
-import os 
+
+ros_path = '/opt/ros/kinetic/lib/python2.7/dist-packages'
+if ros_path in sys.path:
+    sys.path.remove(ros_path)
+import cv2
+sys.path.append('/opt/ros/kinetic/lib/python2.7/dist-packages')
 
 #opencv库中的摄像头捕捉,video(0)
 video = cv2.VideoCapture(0)
