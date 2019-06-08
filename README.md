@@ -123,8 +123,8 @@ pi_camera改用为普通的webcam，底层采用stm32进行小车的控制，小
 
 ## 安装vnc
 
-    sudo apt-get install vnc4server
-    sudo apt-get install xfce4
+    sudo apt-get update
+    sudo apt install xfce4 xfce4-goodies vnc4server	    
     vncserver
     vncserver -kill :1
     cd ~/.vnc
